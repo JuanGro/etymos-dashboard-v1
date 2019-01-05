@@ -24,15 +24,14 @@ export class WordFormComponent implements OnInit{
     };
 
     public onSubmit(word: Word) {
-        this.newWord.emit(word);
-        // this.sendDataToAPI(word);
+        this.sendDataToAPI(word);
     };
 
     public sendDataToAPI(word: Word) {
         const url = 'words';
         this.httpService.post(url, word)
             .subscribe(
-                data => console.log(data)
+                wordSerialized => this.newWord.emit(new Word(wordSerialized))
             );
     }
 }

@@ -1,4 +1,5 @@
 export class Test {
+  public id: number;
   public phrase: string;
   public word_id: number;
   public etymos_version_test: string;
@@ -6,8 +7,11 @@ export class Test {
   public incorrect_option1: string;
   public incorrect_option2: string;
 
-  constructor(json?: Test) {
+  constructor(json?) {
     if (json) {
+      if (json.id) {
+        this.id = json.id;
+      }
       this.phrase = json.phrase;
       this.word_id = json.word_id;
       this.etymos_version_test = json.etymos_version_test;

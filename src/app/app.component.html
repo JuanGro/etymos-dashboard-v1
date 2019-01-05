@@ -19,7 +19,7 @@
 
     <aw-wizard-step [stepTitle]="'Añadir sus etimologías'" [navigationSymbol]="{ symbol: '3' }">
       <div class="centered-content">
-        <app-etymology-form></app-etymology-form>
+        <app-etymology-form [word]="word"></app-etymology-form>
         <hr>
         <button type="button" class="btn btn-block btn-danger" awResetWizard>Limpiar todo</button>
         <button type="button" class="btn btn-block btn-default" awPreviousStep>Regresar al paso anterior</button>

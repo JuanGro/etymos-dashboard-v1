@@ -3,7 +3,7 @@ export class WordEtymology {
   public etymology_id: number;
   public etymology_order: number;
 
-  constructor(json?: WordEtymology) {
+  constructor(json?) {
     if (json) {
       this.word_id = json.word_id;
       this.etymology_id = json.etymology_id;

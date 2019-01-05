@@ -1,4 +1,5 @@
 export class Etymology {
+  public id: number;
   public type_etymology: string;
   public language: string;
   public graeco_latin_etymology: string;
@@ -7,8 +8,11 @@ export class Etymology {
   public image_etymology: string;
   public etymos_version_etymology: string;
 
-  constructor(json?: Etymology) {
+  constructor(json?) {
     if (json) {
+      if (json.id) {
+        this.id = json.id;
+      }
       this.type_etymology = json.type_etymology;
       this.language = json.language;
       this.graeco_latin_etymology = json.graeco_latin_etymology;

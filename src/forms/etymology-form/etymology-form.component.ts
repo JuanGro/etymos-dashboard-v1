@@ -20,6 +20,10 @@ export class EtymologyFormComponent implements OnInit{
         this.reset();
     }
 
+    ngOnChanges() {
+        console.log(this.word);
+    }
+
     public reset() {
         this.etymology = new Etymology();
     };
