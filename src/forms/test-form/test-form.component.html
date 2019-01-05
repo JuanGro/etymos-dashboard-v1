@@ -1,1 +1,55 @@
 <div class="text-center"><h1>Crear test</h1></div>
+
+<form (ngSubmit)="onSubmit(model)" #testForm="ngForm">
+    <div class="form-group">
+        <label for="phrase">Frase</label>
+        <textarea type="text" class="form-control" id="phrase" required
+            [(ngModel)]="model.phrase" name="phrase" #phrase="ngModel"></textarea>
+        <div [hidden]="phrase.valid || phrase.pristine" class="alert alert-danger">
+            Es necesaria la frase
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="etymos_version_test">Versión para la cual es mostrada</label>
+        <select class="form-control" id="etymos_version_test"
+                required
+                [(ngModel)]="model.etymos_version_test" name="etymos_version_test"
+                #etymos_version_test="ngModel">
+        <option *ngFor="let version of etymos_versions" [value]="version">{{version}}</option>
+        </select>
+        <div [hidden]="etymos_version_test.valid || etymos_version_test.pristine" class="alert alert-danger">
+            Es necesario definir la versión
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="option1">1ra opción</label>
+        <input type="text" class="form-control" id="option1" required
+            [(ngModel)]="model.option1" name="option1" #option1="ngModel">
+        <div [hidden]="option1.valid || option1.pristine" class="alert alert-danger">
+            Es necesaria la primera opción
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="option2">2da opción</label>
+        <input type="text" class="form-control" id="option2" required
+            [(ngModel)]="model.option2" name="option2" #option2="ngModel">
+        <div [hidden]="option2.valid || option2.pristine" class="alert alert-danger">
+            Es necesaria la segunda opción
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="option3">3ra opción</label>
+        <input type="text" class="form-control" id="option3" required
+            [(ngModel)]="model.option3" name="option3" #option3="ngModel">
+        <div [hidden]="option3.valid || option3.pristine" class="alert alert-danger">
+            Es necesaria la tercera opción
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-block btn-success" [disabled]="!testForm.form.valid">Crear</button>
+    <button type="button" class="btn btn-block btn-danger" (click)="reset(); testForm.reset()">Limpiar forma</button>
+</form>

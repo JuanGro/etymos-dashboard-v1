@@ -14,7 +14,7 @@
         <input type="text" class="form-control" id="meaning_word" required
             [(ngModel)]="model.meaning_word" name="meaning_word" #meaning_word="ngModel">
         <div [hidden]="meaning_word.valid || meaning_word.pristine" class="alert alert-danger">
-            Es necesario el significado de la palabra
+            Es necesario el significado
         </div>
     </div>
 
@@ -23,7 +23,7 @@
         <input type="text" class="form-control" id="image_word" required
             [(ngModel)]="model.image_word" name="image_word" #image_word="ngModel">
         <div [hidden]="image_word.valid || image_word.pristine" class="alert alert-danger">
-            Es necesaria la imagen de la palabra
+            Es necesaria una imagen
         </div>
     </div>
 
@@ -36,7 +36,7 @@
         <option *ngFor="let version of etymos_versions" [value]="version">{{version}}</option>
         </select>
         <div [hidden]="etymos_version_word.valid || etymos_version_word.pristine" class="alert alert-danger">
-            Es necesario definir la versión para la cual estará disponible la palabra
+            Es necesario definir la versión
         </div>
     </div>
 
