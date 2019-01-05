@@ -5,11 +5,13 @@ import { ArchwizardModule } from 'angular-archwizard';
 import { AppComponent } from './app.component';
 
 import { WordFormComponent } from './../forms/word-form/word-form.component';
+import { TestFormComponent } from './../forms/test-form/test-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WordFormComponent
+    WordFormComponent,
+    TestFormComponent
   ],
   imports: [
     BrowserModule,

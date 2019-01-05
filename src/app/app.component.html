@@ -10,18 +10,18 @@
 
     <aw-wizard-step [stepTitle]="'Crear test'" [navigationSymbol]="{ symbol: '2' }">
       <div class="centered-content">
-
+        <app-test-form></app-test-form>
         <br>
-        <button type="button" class="btn btn-block btn-secondary" awPreviousStep>Regresar al paso anterior</button>
         <button type="button" class="btn btn-block btn-default" awNextStep>Siguiente paso</button>
+        <button type="button" class="btn btn-block btn-default" awPreviousStep>Regresar al paso anterior</button>
       </div>
     </aw-wizard-step>
 
     <aw-wizard-step [stepTitle]="'Añadir sus etimologías'" [navigationSymbol]="{ symbol: '3' }">
       <div class="centered-content">
         <br>
-        <button type="button" class="btn btn-block btn-secondary" awPreviousStep>Regresar al paso anterior</button>
         <button type="button" class="btn btn-block btn-danger" awResetWizard>Limpiar todo</button>
+        <button type="button" class="btn btn-block btn-default" awPreviousStep>Regresar al paso anterior</button>
       </div>
     </aw-wizard-step>
   </aw-wizard>
