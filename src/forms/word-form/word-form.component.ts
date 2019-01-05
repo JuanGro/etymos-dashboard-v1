@@ -1,28 +1,23 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, AfterContentInit } from '@angular/core';
 import { Word } from './../../models/word';
 import { HttpService } from './../../services/http.service';
-import { ToastrService } from 'ngx-toastr';
+import { ToasterService } from 'src/services/toaster.service';
 
 @Component({
   providers: [HttpService],
   selector: 'app-word-form',
   templateUrl: './word-form.component.html'
 })
-export class WordFormComponent implements OnInit{
+export class WordFormComponent implements OnInit {
     public etymos_versions: string[];
     public word: Word;
     @Output() newWord = new EventEmitter<Word>();
 
-    constructor(public httpService: HttpService, private toastr: ToastrService) {}
+    constructor(public httpService: HttpService, private toasterService: ToasterService) {}
 
     ngOnInit() {
         this.etymos_versions = ['lite', 'pro', 'med'];
         this.reset();
-        this.showSuccess();
-    }
-
-    public showSuccess() {
-        this.toastr.success('Hello world!', 'Toastr fun!');
     }
 
     public reset() {
@@ -37,7 +32,11 @@ export class WordFormComponent implements OnInit{
         const url = 'words';
         this.httpService.post(url, word)
             .subscribe(
-                wordSerialized => this.newWord.emit(new Word(wordSerialized))
+                wordSerialized => 
+                {
+                    this.newWord.emit(new Word(wordSerialized));
+                    this.toasterService.showSuccess(":)", "La palabra fue creada con éxito");
+                }
             );
     }
 }

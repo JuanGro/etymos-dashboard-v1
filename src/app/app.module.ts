@@ -12,6 +12,7 @@ import { TestFormComponent } from './../forms/test-form/test-form.component';
 import { EtymologyFormComponent } from './../forms/etymology-form/etymology-form.component';
 
 import { HttpService } from './../services/http.service';
+import { ToasterService } from './../services/toaster.service';
 
 @NgModule({
   declarations: [
@@ -25,10 +26,13 @@ import { HttpService } from './../services/http.service';
     FormsModule,
     HttpClientModule,
     ArchwizardModule,
-    BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot() // ToastrModule added
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
-  providers: [HttpService],
+  providers: [
+    HttpService,
+    ToasterService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
