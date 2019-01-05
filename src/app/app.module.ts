@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 
 import { WordFormComponent } from './../forms/word-form/word-form.component';
 import { TestFormComponent } from './../forms/test-form/test-form.component';
+import { EtymologyFormComponent } from './../forms/etymology-form/etymology-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WordFormComponent,
-    TestFormComponent
+    TestFormComponent,
+    EtymologyFormComponent
   ],
   imports: [
     BrowserModule,

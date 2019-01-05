@@ -10,7 +10,7 @@
     </div>
 
     <div class="form-group">
-        <label for="meaning_word">Significado de la palabra</label>
+        <label for="meaning_word">Significado</label>
         <input type="text" class="form-control" id="meaning_word" required
             [(ngModel)]="model.meaning_word" name="meaning_word" #meaning_word="ngModel">
         <div [hidden]="meaning_word.valid || meaning_word.pristine" class="alert alert-danger">
@@ -18,8 +18,12 @@
         </div>
     </div>
 
+    <div *ngIf="model.image_word">
+        <img src="{{ model.image_word }}">
+    </div>
+
     <div class="form-group">
-        <label for="image_word">URL de la imagen para la palabra</label>
+        <label for="image_word">URL imagen</label>
         <input type="text" class="form-control" id="image_word" required
             [(ngModel)]="model.image_word" name="image_word" #image_word="ngModel">
         <div [hidden]="image_word.valid || image_word.pristine" class="alert alert-danger">
@@ -28,7 +32,7 @@
     </div>
 
     <div class="form-group">
-        <label for="etymos_version_word">Versión para la cual es mostrada</label>
+        <label for="etymos_version_word">Versión de Etymos</label>
         <select class="form-control" id="etymos_version_word"
                 required
                 [(ngModel)]="model.etymos_version_word" name="etymos_version_word"
