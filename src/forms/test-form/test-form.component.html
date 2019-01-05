@@ -24,29 +24,20 @@
     </div>
 
     <div class="form-group">
-        <label for="option1">1ra opción</label>
-        <input type="text" class="form-control" id="option1" required
-            [(ngModel)]="model.option1" name="option1" #option1="ngModel">
-        <div [hidden]="option1.valid || option1.pristine" class="alert alert-danger">
+        <label for="incorrect_option1">1ra opción incorrecta</label>
+        <input type="text" class="form-control" id="incorrect_option1" required
+            [(ngModel)]="model.incorrect_option1" name="incorrect_option1" #incorrect_option1="ngModel">
+        <div [hidden]="incorrect_option1.valid || incorrect_option1.pristine" class="alert alert-danger">
             Es necesaria la primera opción
         </div>
     </div>
 
     <div class="form-group">
-        <label for="option2">2da opción</label>
-        <input type="text" class="form-control" id="option2" required
-            [(ngModel)]="model.option2" name="option2" #option2="ngModel">
-        <div [hidden]="option2.valid || option2.pristine" class="alert alert-danger">
+        <label for="incorrect_option2">2da opción incorrecta</label>
+        <input type="text" class="form-control" id="incorrect_option2" required
+            [(ngModel)]="model.incorrect_option2" name="incorrect_option2" #incorrect_option2="ngModel">
+        <div [hidden]="incorrect_option2.valid || incorrect_option2.pristine" class="alert alert-danger">
             Es necesaria la segunda opción
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="option3">3ra opción</label>
-        <input type="text" class="form-control" id="option3" required
-            [(ngModel)]="model.option3" name="option3" #option3="ngModel">
-        <div [hidden]="option3.valid || option3.pristine" class="alert alert-danger">
-            Es necesaria la tercera opción
         </div>
     </div>
 

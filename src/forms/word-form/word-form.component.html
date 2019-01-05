@@ -19,7 +19,7 @@
     </div>
 
     <div class="form-group">
-        <label for="image_word">Imagen para la palabra</label>
+        <label for="image_word">URL de la imagen para la palabra</label>
         <input type="text" class="form-control" id="image_word" required
             [(ngModel)]="model.image_word" name="image_word" #image_word="ngModel">
         <div [hidden]="image_word.valid || image_word.pristine" class="alert alert-danger">
