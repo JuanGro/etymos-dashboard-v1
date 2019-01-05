@@ -9,9 +9,7 @@ export class Test {
 
   constructor(json?) {
     if (json) {
-      if (json.id) {
-        this.id = json.id;
-      }
+      if (json.id) this.id = json.id;
       this.phrase = json.phrase;
       this.word_id = json.word_id;
       this.etymos_version_test = json.etymos_version_test;

@@ -35,7 +35,7 @@ export class WordFormComponent implements OnInit {
                 wordSerialized => 
                 {
                     this.newWord.emit(new Word(wordSerialized));
-                    this.toasterService.showSuccess(":)", "La palabra fue creada con éxito");
+                    this.toasterService.showSuccess("Palabra", "La palabra fue creada con éxito");
                 }
             );
     }

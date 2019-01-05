@@ -2,6 +2,19 @@
 
 <form (ngSubmit)="onSubmit(etymology)" #etymologyForm="ngForm">
     <div class="form-group">
+        <label for="etymology_order">Orden de la etimología</label>
+        <select class="form-control" id="etymology_order"
+                required
+                [(ngModel)]="etymology.etymology_order" name="etymology_order"
+                #etymology_order="ngModel">
+        <option *ngFor="let number of order_numbers" [value]="number">{{number}}</option>
+        </select>
+        <div [hidden]="etymology_order.valid || etymology_order.pristine" class="alert alert-danger">
+            Es necesario definir el orden
+        </div>
+    </div>
+
+    <div class="form-group">
         <label for="type_etymology">Tipo</label>
         <select class="form-control" id="type_etymology"
                 required
