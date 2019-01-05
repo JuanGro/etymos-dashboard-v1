@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { ArchwizardModule } from 'angular-archwizard';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 import { WordFormComponent } from './../forms/word-form/word-form.component';
 import { TestFormComponent } from './../forms/test-form/test-form.component';
@@ -22,7 +24,9 @@ import { HttpService } from './../services/http.service';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    ArchwizardModule
+    ArchwizardModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() // ToastrModule added
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]

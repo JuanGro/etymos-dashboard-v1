@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Word } from './../../models/word';
 import { HttpService } from './../../services/http.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   providers: [HttpService],
@@ -12,11 +13,16 @@ export class WordFormComponent implements OnInit{
     public word: Word;
     @Output() newWord = new EventEmitter<Word>();
 
-    constructor(public httpService: HttpService) {}
+    constructor(public httpService: HttpService, private toastr: ToastrService) {}
 
     ngOnInit() {
         this.etymos_versions = ['lite', 'pro', 'med'];
         this.reset();
+        this.showSuccess();
+    }
+
+    public showSuccess() {
+        this.toastr.success('Hello world!', 'Toastr fun!');
     }
 
     public reset() {
