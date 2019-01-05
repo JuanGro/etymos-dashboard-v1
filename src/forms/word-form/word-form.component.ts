@@ -7,20 +7,18 @@ import { Word }    from './../../models/word';
 })
 export class WordFormComponent implements OnInit{
     public etymos_versions: string[];
-    public submitted: boolean;
     public model: Word;
 
     ngOnInit() {
         this.etymos_versions = ['lite', 'pro', 'med'];
-        this.submitted = false;
-        this.model = new Word();
+        this.reset();
     }
-
-    public onSubmit() {
-        this.submitted = true; 
-    };
 
     public reset() {
         this.model = new Word();
+    };
+
+    public onSubmit(model: Word) {
+        console.log(model);
     };
 }

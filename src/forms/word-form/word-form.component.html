@@ -1,46 +1,45 @@
-<div class="container">
-    <div [hidden]="submitted">
-        <h1>Crear palabra</h1>
-        <form (ngSubmit)="onSubmit()" #wordForm="ngForm">
-        <div class="form-group">
-            <label for="word_word">Word</label>
-            <input type="text" class="form-control" id="word_word"
-                    required
-                    [(ngModel)]="model.word_word" name="word_word"
-                    #word_word="ngModel">
-            <div [hidden]="word_word.valid || word_word.pristine"
-                class="alert alert-danger">
-                Word is required
-            </div>
+<div class="text-center"><h1>Crear palabra</h1></div>
+<form (ngSubmit)="onSubmit(model)" #wordForm="ngForm">
+    <div class="form-group">
+        <label for="word_word">Palabra</label>
+        <input type="text" class="form-control" id="word_word" required
+            [(ngModel)]="model.word_word" name="word_word" #word_word="ngModel">
+        <div [hidden]="word_word.valid || word_word.pristine" class="alert alert-danger">
+            Es necesaria la palabra
         </div>
-    
-        <div class="form-group">
-            <label for="meaning_word">Meaning of the word</label>
-            <input type="text" class="form-control" id="meaning_word"
-                    [(ngModel)]="model.meaning_word" name="meaning_word">
-        </div>
-
-        <div class="form-group">
-            <label for="image_word">Image of the word</label>
-            <input type="text" class="form-control" id="image_word"
-                    [(ngModel)]="model.image_word" name="image_word">
-        </div>
-    
-        <div class="form-group">
-            <label for="etymos_version_word">Etymos version</label>
-            <select class="form-control" id="etymos_version_word"
-                    required
-                    [(ngModel)]="model.etymos_version_word" name="etymos_version_word"
-                    #etymos_version_word="ngModel">
-            <option *ngFor="let version of etymos_versions" [value]="version">{{version}}</option>
-            </select>
-            <div [hidden]="etymos_version_word.valid || etymos_version_word.pristine" class="alert alert-danger">
-                Version is required
-            </div>
-        </div>
-    
-        <button type="submit" class="btn btn-success" [disabled]="!wordForm.form.valid">Submit</button>
-        <button type="button" class="btn btn-default" (click)="reset(); wordForm.reset()">Reset</button>
-        </form>
     </div>
-</div>
+
+    <div class="form-group">
+        <label for="meaning_word">Significado de la palabra</label>
+        <input type="text" class="form-control" id="meaning_word" required
+            [(ngModel)]="model.meaning_word" name="meaning_word" #meaning_word="ngModel">
+        <div [hidden]="meaning_word.valid || meaning_word.pristine" class="alert alert-danger">
+            Es necesario el significado de la palabra
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="image_word">Imagen para la palabra</label>
+        <input type="text" class="form-control" id="image_word" required
+            [(ngModel)]="model.image_word" name="image_word" #image_word="ngModel">
+        <div [hidden]="image_word.valid || image_word.pristine" class="alert alert-danger">
+            Es necesaria la imagen de la palabra
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="etymos_version_word">Versión para la cual es mostrada</label>
+        <select class="form-control" id="etymos_version_word"
+                required
+                [(ngModel)]="model.etymos_version_word" name="etymos_version_word"
+                #etymos_version_word="ngModel">
+        <option *ngFor="let version of etymos_versions" [value]="version">{{version}}</option>
+        </select>
+        <div [hidden]="etymos_version_word.valid || etymos_version_word.pristine" class="alert alert-danger">
+            Es necesario definir la versión para la cual estará disponible la palabra
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-block btn-success" [disabled]="!wordForm.form.valid">Crear</button>
+    <button type="button" class="btn btn-block btn-danger" (click)="reset(); wordForm.reset()">Limpiar forma</button>
+</form>

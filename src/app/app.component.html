@@ -1,35 +1,28 @@
-<aw-wizard #wizard [navBarLayout]="'large-filled-symbols'">
-  <aw-wizard-step [stepTitle]="'Crear palabra'" [navigationSymbol]="{ symbol: '1' }">
-    <div class="centered-content">
-      <div>
+<div class="container">
+  <aw-wizard #wizard [navBarLayout]="'large-filled-symbols'">
+    <aw-wizard-step [stepTitle]="'Crear palabra'" [navigationSymbol]="{ symbol: '1' }">
+      <div class="centered-content">
         <app-word-form></app-word-form>
+        <br>
+        <button type="button" class="btn btn-block btn-default" awNextStep>Siguiente paso</button>
       </div>
+    </aw-wizard-step>
 
-      <div class="btn-group">
-        <button type="button" class="btn btn-secondary" awNextStep>Continue</button>
-      </div>
-    </div>
-  </aw-wizard-step>
-  <aw-wizard-step [stepTitle]="'Crear test'" [navigationSymbol]="{ symbol: '2' }">
-    <div class="centered-content">
-      <div>
-      </div>
+    <aw-wizard-step [stepTitle]="'Crear test'" [navigationSymbol]="{ symbol: '2' }">
+      <div class="centered-content">
 
-      <div class="btn-group">
-        <button type="button" class="btn btn-secondary" awPreviousStep>Back</button>
-        <button type="button" class="btn btn-secondary" awNextStep>Continue</button>
+        <br>
+        <button type="button" class="btn btn-block btn-secondary" awPreviousStep>Regresar al paso anterior</button>
+        <button type="button" class="btn btn-block btn-default" awNextStep>Siguiente paso</button>
       </div>
-    </div>
-  </aw-wizard-step>
-  <aw-wizard-step [stepTitle]="'Añadir sus etimologías'" [navigationSymbol]="{ symbol: '3' }">
-    <div class="centered-content">
-      <div>
-      </div>
+    </aw-wizard-step>
 
-      <div class="btn-group">
-        <button type="button" class="btn btn-secondary" awPreviousStep>Back</button>
-        <button type="button" class="btn btn-secondary" awResetWizard>Reset</button>
+    <aw-wizard-step [stepTitle]="'Añadir sus etimologías'" [navigationSymbol]="{ symbol: '3' }">
+      <div class="centered-content">
+        <br>
+        <button type="button" class="btn btn-block btn-secondary" awPreviousStep>Regresar al paso anterior</button>
+        <button type="button" class="btn btn-block btn-danger" awResetWizard>Limpiar todo</button>
       </div>
-    </div>
-  </aw-wizard-step>
-</aw-wizard>
+    </aw-wizard-step>
+  </aw-wizard>
+</div>
