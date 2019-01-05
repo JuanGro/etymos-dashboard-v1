@@ -7,18 +7,18 @@ export class ToasterService {
   constructor(private toastr: ToastrService) {}
 
   public showSuccess(title: string, message: string) {
-    this.toastr.success(title, message);
+    this.toastr.success(message, title);
   }
 
   public showError(title: string, message: string) {
-    this.toastr.error(title, message);
+    this.toastr.error(message, title);
   }
 
   public showInfo(title: string, message: string) {
-    this.toastr.info(title, message);
+    this.toastr.info(message, title);
   }
 
   public showWarning(title: string, message: string) {
-    this.toastr.warning(title, message);
+    this.toastr.warning(message, title);
   }
 }
