@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { Test } from './../../models/test';
+import { Word } from 'src/models/word';
 
 @Component({
   selector: 'app-test-form',
@@ -7,18 +8,23 @@ import { Test } from './../../models/test';
 })
 export class TestFormComponent implements OnInit{
     public etymos_versions: string[];
-    public model: Test;
+    public test: Test;
+    @Input() word: Word;
 
     ngOnInit() {
         this.etymos_versions = ['lite', 'pro', 'med'];
         this.reset();
     }
 
+    ngOnChanges() {
+        console.log(this.word);
+    }
+
     public reset() {
-        this.model = new Test();
+        this.test = new Test();
     };
 
-    public onSubmit(model: Test) {
-        console.log(model);
+    public onSubmit(test: Test) {
+        console.log(test);
     };
 }

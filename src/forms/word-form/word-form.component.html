@@ -1,9 +1,9 @@
 <div class="text-center"><h1>Crear palabra</h1></div>
-<form (ngSubmit)="onSubmit(model)" #wordForm="ngForm">
+<form (ngSubmit)="onSubmit(word)" #wordForm="ngForm">
     <div class="form-group">
         <label for="word_word">Palabra</label>
         <input type="text" class="form-control" id="word_word" required
-            [(ngModel)]="model.word_word" name="word_word" #word_word="ngModel">
+            [(ngModel)]="word.word_word" name="word_word" #word_word="ngModel">
         <div [hidden]="word_word.valid || word_word.pristine" class="alert alert-danger">
             Es necesaria la palabra
         </div>
@@ -12,20 +12,20 @@
     <div class="form-group">
         <label for="meaning_word">Significado</label>
         <input type="text" class="form-control" id="meaning_word" required
-            [(ngModel)]="model.meaning_word" name="meaning_word" #meaning_word="ngModel">
+            [(ngModel)]="word.meaning_word" name="meaning_word" #meaning_word="ngModel">
         <div [hidden]="meaning_word.valid || meaning_word.pristine" class="alert alert-danger">
             Es necesario el significado
         </div>
     </div>
 
-    <div *ngIf="model.image_word">
-        <img src="{{ model.image_word }}">
+    <div *ngIf="word.image_word">
+        <img src="{{ word.image_word }}">
     </div>
 
     <div class="form-group">
         <label for="image_word">URL imagen</label>
         <input type="text" class="form-control" id="image_word" required
-            [(ngModel)]="model.image_word" name="image_word" #image_word="ngModel">
+            [(ngModel)]="word.image_word" name="image_word" #image_word="ngModel">
         <div [hidden]="image_word.valid || image_word.pristine" class="alert alert-danger">
             Es necesaria una imagen
         </div>
@@ -35,7 +35,7 @@
         <label for="etymos_version_word">Versión de Etymos</label>
         <select class="form-control" id="etymos_version_word"
                 required
-                [(ngModel)]="model.etymos_version_word" name="etymos_version_word"
+                [(ngModel)]="word.etymos_version_word" name="etymos_version_word"
                 #etymos_version_word="ngModel">
         <option *ngFor="let version of etymos_versions" [value]="version">{{version}}</option>
         </select>

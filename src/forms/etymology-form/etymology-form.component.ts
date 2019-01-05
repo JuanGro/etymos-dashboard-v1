@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Etymology } from './../../models/etymology';
+import { Word } from 'src/models/word';
 
 @Component({
   selector: 'app-etymology-form',
@@ -9,7 +10,8 @@ export class EtymologyFormComponent implements OnInit{
     public etymos_versions: string[];
     public etymologies_type: string[];
     public languages: string[];
-    public model: Etymology;
+    public etymology: Etymology;
+    @Input() word: Word;
 
     ngOnInit() {
         this.etymos_versions = ['lite', 'pro', 'med'];
@@ -19,10 +21,10 @@ export class EtymologyFormComponent implements OnInit{
     }
 
     public reset() {
-        this.model = new Etymology();
+        this.etymology = new Etymology();
     };
 
-    public onSubmit(model: Etymology) {
-        console.log(model);
+    public onSubmit(etymology: Etymology) {
+        console.log(etymology);
     };
 }

@@ -1,11 +1,11 @@
 <div class="text-center"><h1>Crear etimología</h1></div>
 
-<form (ngSubmit)="onSubmit(model)" #etymologyForm="ngForm">
+<form (ngSubmit)="onSubmit(etymology)" #etymologyForm="ngForm">
     <div class="form-group">
         <label for="type_etymology">Tipo</label>
         <select class="form-control" id="type_etymology"
                 required
-                [(ngModel)]="model.type_etymology" name="type_etymology"
+                [(ngModel)]="etymology.type_etymology" name="type_etymology"
                 #type_etymology="ngModel">
         <option *ngFor="let type of etymologies_type" [value]="type">{{type}}</option>
         </select>
@@ -18,7 +18,7 @@
         <label for="language">Lenguaje</label>
         <select class="form-control" id="language"
                 required
-                [(ngModel)]="model.language" name="language"
+                [(ngModel)]="etymology.language" name="language"
                 #language="ngModel">
         <option *ngFor="let lang of languages" [value]="lang">{{lang}}</option>
         </select>
@@ -30,7 +30,7 @@
     <div class="form-group">
         <label for="graeco_latin_etymology">Etimología en griego o latín</label>
         <input type="text" class="form-control" id="graeco_latin_etymology" required
-            [(ngModel)]="model.graeco_latin_etymology" name="graeco_latin_etymology" #graeco_latin_etymology="ngModel">
+            [(ngModel)]="etymology.graeco_latin_etymology" name="graeco_latin_etymology" #graeco_latin_etymology="ngModel">
         <div [hidden]="graeco_latin_etymology.valid || graeco_latin_etymology.pristine" class="alert alert-danger">
             Es necesaria la la etimología
         </div>
@@ -39,7 +39,7 @@
     <div class="form-group">
         <label for="pattern">Patrón de etimología</label>
         <input type="text" class="form-control" id="pattern" required
-            [(ngModel)]="model.pattern" name="pattern" #pattern="ngModel">
+            [(ngModel)]="etymology.pattern" name="pattern" #pattern="ngModel">
         <div [hidden]="pattern.valid || pattern.pristine" class="alert alert-danger">
             Es necesaria el patrón
         </div>
@@ -48,20 +48,20 @@
     <div class="form-group">
         <label for="meaning_etymology">Significado</label>
         <textarea type="text" class="form-control" id="meaning_etymology" required
-            [(ngModel)]="model.meaning_etymology" name="meaning_etymology" #meaning_etymology="ngModel"></textarea>
+            [(ngModel)]="etymology.meaning_etymology" name="meaning_etymology" #meaning_etymology="ngModel"></textarea>
         <div [hidden]="meaning_etymology.valid || meaning_etymology.pristine" class="alert alert-danger">
             Es necesario el significado
         </div>
     </div>
 
-    <div *ngIf="model.image_etymology">
-        <img src="{{ model.image_etymology }}">
+    <div *ngIf="etymology.image_etymology">
+        <img src="{{ etymology.image_etymology }}">
     </div>
 
     <div class="form-group">
         <label for="image_etymology">URL imagen</label>
         <input type="text" class="form-control" id="image_etymology" required
-            [(ngModel)]="model.image_etymology" name="image_etymology" #image_etymology="ngModel">
+            [(ngModel)]="etymology.image_etymology" name="image_etymology" #image_etymology="ngModel">
         <div [hidden]="image_etymology.valid || image_etymology.pristine" class="alert alert-danger">
             Es necesaria la imagen
         </div>
@@ -71,7 +71,7 @@
         <label for="etymos_version_etymology">Versión de Etymos</label>
         <select class="form-control" id="etymos_version_etymology"
                 required
-                [(ngModel)]="model.etymos_version_etymology" name="etymos_version_etymology"
+                [(ngModel)]="etymology.etymos_version_etymology" name="etymos_version_etymology"
                 #etymos_version_etymology="ngModel">
         <option *ngFor="let version of etymos_versions" [value]="version">{{version}}</option>
         </select>
