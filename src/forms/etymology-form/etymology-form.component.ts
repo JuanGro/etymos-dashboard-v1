@@ -38,7 +38,7 @@ export class EtymologyFormComponent implements OnInit{
     };
 
     public sendDataToAPI(etymology: Etymology) {
-        const url = 'etymologies';
+        const url = 'find_etymologies';
         this.httpService.post(url, etymology)
             .subscribe(
                 etymologySerialized => 
