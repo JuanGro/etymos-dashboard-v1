@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
+import { WizardComponent } from './../wizard/wizard.component';
+
 import { WordFormComponent } from './../forms/word-form/word-form.component';
 import { TestFormComponent } from './../forms/test-form/test-form.component';
 import { EtymologyFormComponent } from './../forms/etymology-form/etymology-form.component';
@@ -15,10 +17,12 @@ import { WordIndexComponent } from './../indexes/word-index/word-index.component
 
 import { HttpService } from './../services/http.service';
 import { ToasterService } from './../services/toaster.service';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    WizardComponent,
     WordFormComponent,
     TestFormComponent,
     EtymologyFormComponent,
@@ -30,7 +34,8 @@ import { ToasterService } from './../services/toaster.service';
     HttpClientModule,
     ArchwizardModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [
     HttpService,
