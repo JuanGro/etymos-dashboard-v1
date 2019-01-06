@@ -17,7 +17,7 @@ export class HttpService {
         catchError(err => {
           this.toasterService.showError("Error", "Hubo un error en la petición GET");
           return throwError(err);
-          }))
+        }));
   }
 
   post(urlPOST: string, postObject: any) {
@@ -25,6 +25,15 @@ export class HttpService {
       .pipe(
         catchError(err => {
           this.toasterService.showError("Error", "Hubo un error en la petición POST");
+          return throwError(err);
+        }));
+  }
+
+  delete(urlDELETE: string) {
+    return this.http.delete(urlDELETE)
+      .pipe(
+        catchError(err => {
+          this.toasterService.showError("Error", "Hubo un error en la petición DELETE");
           return throwError(err);
         }));
   }

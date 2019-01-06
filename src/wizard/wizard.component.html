@@ -5,6 +5,7 @@
         <app-word-form (newWord)="saveWord($event)"></app-word-form>
         <hr>
         <button type="button" class="btn btn-block btn-default" awNextStep>Siguiente paso</button>
+        <br>
       </div>
     </aw-wizard-step>
 
@@ -14,6 +15,7 @@
         <hr>
         <button type="button" class="btn btn-block btn-default" awNextStep>Siguiente paso</button>
         <button type="button" class="btn btn-block btn-default" awPreviousStep>Regresar al paso anterior</button>
+        <br>
       </div>
     </aw-wizard-step>
 
@@ -22,7 +24,13 @@
         <app-etymology-form [word]="word"></app-etymology-form>
         <hr>
         <button type="button" class="btn btn-block btn-default" awPreviousStep>Regresar al paso anterior</button>
+        <a routerLink="/word_index" type="button" class="btn btn-block btn-info">Ver lista de palabras</a>
+        <a routerLink="/test_index" type="button" class="btn btn-block btn-info">Ver lista de tests</a>
+        <a routerLink="/option_index" type="button" class="btn btn-block btn-info">Ver lista de opciones</a>
+        <a routerLink="/etymology_index" type="button" class="btn btn-block btn-info">Ver lista de etimologías</a>
+        <a routerLink="/word_etymology_index" type="button" class="btn btn-block btn-info">Ver lista de link entre palabra y etimologías</a>
         <button type="button" class="btn btn-block btn-danger" awResetWizard>Volver a comenzar</button>
+        <br>
       </div>
     </aw-wizard-step>
   </aw-wizard>

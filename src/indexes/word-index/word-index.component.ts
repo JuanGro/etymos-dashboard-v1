@@ -12,7 +12,7 @@ export class WordIndexComponent implements OnInit, OnChanges {
   public settings: any;
   public wordList: Array<Word>;
 
-  constructor(private httpService: HttpService) {
+  constructor(private httpService: HttpService, public toasterService: ToasterService) {
     this.loadList();
   }
 
@@ -36,7 +36,7 @@ export class WordIndexComponent implements OnInit, OnChanges {
         }
       },
       pager: {
-        perPage: 20
+        perPage: 10
       }
     };
   }
@@ -50,6 +50,27 @@ export class WordIndexComponent implements OnInit, OnChanges {
     this.wordList = [];
     this.httpService.get(url).subscribe(data => {
       this.wordList = data as Array<Word>;
+    });
+  }
+
+  add(word: Word) {
+    const url = 'words';
+    this.httpService.post(url, word).subscribe(data => {
+      this.toasterService.showSuccess("Palabra", "La palabra fue creada con éxito");
+    });
+  }
+
+  edit(word: Word) {
+    const url = 'words/' + word.id;
+    this.httpService.post(url, word).subscribe(data => {
+      this.toasterService.showSuccess("Palabra", "La palabra fue modificada con éxito");
+    });
+  }
+
+  delete(word: Word) {
+    const url = 'words/' + word.id;
+    this.httpService.delete(url).subscribe(data => {
+      this.toasterService.showSuccess("Palabra", "La palabra fue eliminada con éxito");
     });
   }
 }
