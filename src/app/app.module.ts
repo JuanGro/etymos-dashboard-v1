@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { WizardComponent } from './../wizard/wizard.component';
 
@@ -35,6 +36,7 @@ import { AppRoutingModule } from './app-routing.module';
     ArchwizardModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    Ng2SmartTableModule,
     AppRoutingModule
   ],
   providers: [
