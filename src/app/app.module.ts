@@ -11,6 +11,8 @@ import { WordFormComponent } from './../forms/word-form/word-form.component';
 import { TestFormComponent } from './../forms/test-form/test-form.component';
 import { EtymologyFormComponent } from './../forms/etymology-form/etymology-form.component';
 
+import { WordIndexComponent } from './../indexes/word-index/word-index.component';
+
 import { HttpService } from './../services/http.service';
 import { ToasterService } from './../services/toaster.service';
 
@@ -19,7 +21,8 @@ import { ToasterService } from './../services/toaster.service';
     AppComponent,
     WordFormComponent,
     TestFormComponent,
-    EtymologyFormComponent
+    EtymologyFormComponent,
+    WordIndexComponent
   ],
   imports: [
     BrowserModule,
