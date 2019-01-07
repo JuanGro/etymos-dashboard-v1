@@ -15,6 +15,10 @@ import { TestFormComponent } from './../forms/test-form/test-form.component';
 import { EtymologyFormComponent } from './../forms/etymology-form/etymology-form.component';
 
 import { WordIndexComponent } from './../indexes/word-index/word-index.component';
+import { WordEtymologyIndexComponent } from './../indexes/word_etymology-index/word_etymology-index.component';
+import { TestIndexComponent } from './../indexes/test-index/test-index.component';
+import { OptionIndexComponent } from './../indexes/option-index/option-index.component';
+import { EtymologyIndexComponent } from './../indexes/etymology-index/etymology-index.component';
 
 import { HttpService } from './../services/http.service';
 import { ToasterService } from './../services/toaster.service';
@@ -27,7 +31,11 @@ import { AppRoutingModule } from './app-routing.module';
     WordFormComponent,
     TestFormComponent,
     EtymologyFormComponent,
-    WordIndexComponent
+    WordIndexComponent,
+    WordEtymologyIndexComponent,
+    TestIndexComponent,
+    OptionIndexComponent,
+    EtymologyIndexComponent
   ],
   imports: [
     BrowserModule,
