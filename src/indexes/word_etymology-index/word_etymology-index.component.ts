@@ -19,6 +19,9 @@ export class WordEtymologyIndexComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.settings = {
       columns: {
+        id: {
+          title: 'id'
+        },
         word_id: {
           title: 'word_id'
         },
