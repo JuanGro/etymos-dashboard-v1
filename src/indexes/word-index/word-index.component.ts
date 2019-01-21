@@ -56,21 +56,21 @@ export class WordIndexComponent implements OnInit, OnChanges {
   add(word: Word) {
     const url = 'words';
     this.httpService.post(url, word).subscribe(data => {
-      this.toasterService.showSuccess("Palabra", "La palabra fue creada con éxito");
+      this.toasterService.showSuccess('Palabra', 'La palabra fue creada con éxito');
     });
   }
 
   edit(word: Word) {
     const url = 'words/' + word.id;
     this.httpService.post(url, word).subscribe(data => {
-      this.toasterService.showSuccess("Palabra", "La palabra fue modificada con éxito");
+      this.toasterService.showSuccess('Palabra', 'La palabra fue modificada con éxito');
     });
   }
 
   delete(word: Word) {
     const url = 'words/' + word.id;
     this.httpService.delete(url).subscribe(data => {
-      this.toasterService.showSuccess("Palabra", "La palabra fue eliminada con éxito");
+      this.toasterService.showSuccess('Palabra', 'La palabra fue eliminada con éxito');
     });
   }
 }

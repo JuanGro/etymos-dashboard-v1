@@ -22,20 +22,19 @@ export class WordFormComponent implements OnInit {
 
     public reset() {
         this.word = new Word();
-    };
+    }
 
     public onSubmit(word: Word) {
         this.sendDataToAPI(word);
-    };
+    }
 
     public sendDataToAPI(word: Word) {
         const url = 'words';
         this.httpService.post(url, word)
             .subscribe(
-                wordSerialized => 
-                {
+                wordSerialized => {
                     this.newWord.emit(new Word(wordSerialized));
-                    this.toasterService.showSuccess("Palabra", "La palabra fue creada con éxito");
+                    this.toasterService.showSuccess('Palabra', 'La palabra fue creada con éxito');
                 }
             );
     }

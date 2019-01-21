@@ -7,7 +7,7 @@ export class Word {
 
   constructor(json?) {
     if (json) {
-      if (json.id) this.id = json.id;
+      if (json.id) { this.id = json.id; }
       this.word_word = json.word_word;
       this.meaning_word = json.meaning_word;
       this.image_word = json.image_word;

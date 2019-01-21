@@ -1,7 +1,7 @@
-import { NgModule }             from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { WordIndexComponent } from './../indexes/word-index/word-index.component';
-import { WordEtymologyIndexComponent } from '../indexes/word_etymology-index/word_etymology-index.component'
+import { WordEtymologyIndexComponent } from '../indexes/word_etymology-index/word_etymology-index.component';
 import { WizardComponent } from '../wizard/wizard.component';
 import { TestIndexComponent } from '../indexes/test-index/test-index.component';
 import { OptionIndexComponent } from '../indexes/option-index/option-index.component';

@@ -9,7 +9,7 @@ import { WordEtymology } from 'src/models/word_etymology';
   selector: 'app-etymology-form',
   templateUrl: './etymology-form.component.html'
 })
-export class EtymologyFormComponent implements OnInit{
+export class EtymologyFormComponent implements OnInit {
     public etymos_versions: string[];
     public etymologies_type: string[];
     public languages: string[];
@@ -17,7 +17,7 @@ export class EtymologyFormComponent implements OnInit{
     public order_numbers: number[];
     @Input() word: Word;
 
-    constructor(public httpService: HttpService, private toasterService: ToasterService){}
+    constructor(public httpService: HttpService, private toasterService: ToasterService) {}
 
     ngOnInit() {
         this.etymos_versions = ['lite', 'pro', 'med'];
@@ -27,25 +27,22 @@ export class EtymologyFormComponent implements OnInit{
         this.reset();
     }
 
-    ngOnChanges() {}
-
     public reset() {
         this.etymology = new Etymology();
-    };
+    }
 
     public onSubmit(etymology: Etymology) {
         this.sendDataToAPI(etymology);
-    };
+    }
 
     public sendDataToAPI(etymology: Etymology) {
         const url = 'find_etymologies';
         this.httpService.post(url, etymology)
             .subscribe(
-                etymologySerialized => 
-                {
+                etymologySerialized => {
                     const newEtymology = new Etymology(etymologySerialized);
                     this.createWordEtymology(newEtymology.id, this.word.id, etymology.etymology_order);
-                    this.toasterService.showSuccess("Etimología", "La etimología fue creada con éxito");
+                    this.toasterService.showSuccess('Etimología', 'La etimología fue creada con éxito');
                 }
             );
     }
@@ -57,7 +54,7 @@ export class EtymologyFormComponent implements OnInit{
             etymology_id: etymology_id,
             etymology_order: etymology_order
         })).subscribe(
-            data => this.toasterService.showSuccess("Enlace", "La etimología fue asignada a la palabra correspondiente")
+            data => this.toasterService.showSuccess('Enlace', 'La etimología fue asignada a la palabra correspondiente')
         );
     }
 }

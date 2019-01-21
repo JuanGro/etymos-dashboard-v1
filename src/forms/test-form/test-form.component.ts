@@ -9,7 +9,7 @@ import { ToasterService } from 'src/services/toaster.service';
   selector: 'app-test-form',
   templateUrl: './test-form.component.html'
 })
-export class TestFormComponent implements OnInit{
+export class TestFormComponent implements OnInit {
     public etymos_versions: string[];
     public test: Test;
     @Input() word: Word;
@@ -21,16 +21,14 @@ export class TestFormComponent implements OnInit{
         this.reset();
     }
 
-    ngOnChanges() {}
-
     public reset() {
         this.test = new Test();
-    };
+    }
 
     public onSubmit(test: Test) {
         test.word_id = this.word.id;
         this.sendNewTestToAPI(test);
-    };
+    }
 
     public sendNewTestToAPI(test: Test) {
         const url = 'tests';
@@ -41,28 +39,27 @@ export class TestFormComponent implements OnInit{
                     this.createCorrectOption(newTest.id);
                     this.createIncorrectOption(this.test.incorrect_option1, newTest.id);
                     this.createIncorrectOption(this.test.incorrect_option2, newTest.id);
-                    this.toasterService.showSuccess("Test", "El test fue creado con éxito");
+                    this.toasterService.showSuccess('Test', 'El test fue creado con éxito');
                 }
             );
     }
 
     public createCorrectOption(testAux_id: number) {
         const option = new Option({word_option: this.word.word_word, correct: true, test_id: testAux_id});
-        this.sendNewOptionToAPI(option, "La opción correcta fue creada con éxito");
+        this.sendNewOptionToAPI(option, 'La opción correcta fue creada con éxito');
     }
 
     public createIncorrectOption(option_string: string, testAux_id: number) {
         const option = new Option({word_option: option_string, correct: false, test_id: testAux_id});
-        this.sendNewOptionToAPI(option, "La opción incorrecta: " + option_string + " fue creada con éxito");
+        this.sendNewOptionToAPI(option, 'La opción incorrecta: ' + option_string + ' fue creada con éxito');
     }
 
     public sendNewOptionToAPI(option: Option, message_alert: string) {
         const url = 'options';
         this.httpService.post(url, option)
             .subscribe(
-                data => 
-                {
-                    this.toasterService.showSuccess("Opción", message_alert);
+                data => {
+                    this.toasterService.showSuccess('Opción', message_alert);
                 }
             );
     }

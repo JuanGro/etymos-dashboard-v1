@@ -22,7 +22,7 @@ export class HttpService {
     return this.http.get(environment.API_URL + urlGET, httpOptions)
       .pipe(
         catchError(err => {
-          this.toasterService.showError("Error", "Hubo un error en la petición GET");
+          this.toasterService.showError('Error', 'Hubo un error en la petición GET');
           return throwError(err);
         }));
   }
@@ -31,7 +31,7 @@ export class HttpService {
     return this.http.post(environment.API_URL + urlPOST, postObject, httpOptions)
       .pipe(
         catchError(err => {
-          this.toasterService.showError("Error", "Hubo un error en la petición POST");
+          this.toasterService.showError('Error', 'Hubo un error en la petición POST');
           return throwError(err);
         }));
   }
@@ -40,7 +40,7 @@ export class HttpService {
     return this.http.delete(urlDELETE, httpOptions)
       .pipe(
         catchError(err => {
-          this.toasterService.showError("Error", "Hubo un error en la petición DELETE");
+          this.toasterService.showError('Error', 'Hubo un error en la petición DELETE');
           return throwError(err);
         }));
   }

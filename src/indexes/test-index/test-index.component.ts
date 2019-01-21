@@ -25,8 +25,8 @@ export class TestIndexComponent implements OnInit, OnChanges {
         phrase: {
           title: 'phrase'
         },
-        word_id: {
-          title: 'word_id'
+        word_word: {
+          title: 'word'
         },
         etymos_version_test: {
           title: 'etymos_version_test'
@@ -51,7 +51,11 @@ export class TestIndexComponent implements OnInit, OnChanges {
     const url = 'tests';
     this.testList = [];
     this.httpService.get(url).subscribe(data => {
-      this.testList = data as Array<Test>;
+      this.testList = [];
+      const testList = data as Array<Test>;
+      for (const test of testList) {
+        this.testList.push(new Test(test));
+      }
     });
   }
 }

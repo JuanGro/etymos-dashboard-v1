@@ -5,7 +5,7 @@ import { ToasterService } from 'src/services/toaster.service';
 
 @Component({
   providers: [HttpService],
-  selector: 'app-word_etymology-index',
+  selector: 'app-word-etymology-index',
   templateUrl: './word_etymology-index.component.html'
 })
 export class WordEtymologyIndexComponent implements OnInit, OnChanges {
@@ -25,8 +25,14 @@ export class WordEtymologyIndexComponent implements OnInit, OnChanges {
         word_id: {
           title: 'word_id'
         },
+        word_word: {
+          title: 'word_word'
+        },
         etymology_id: {
           title: 'etymology_id'
+        },
+        etymology_pattern: {
+          title: 'etymology_pattern'
         },
         etymology_order: {
           title: 'etymology_order'
@@ -51,7 +57,11 @@ export class WordEtymologyIndexComponent implements OnInit, OnChanges {
     const url = 'word_etymologies';
     this.wordEtymologyList = [];
     this.httpService.get(url).subscribe(data => {
-      this.wordEtymologyList = data as Array<WordEtymology>;
+      this.wordEtymologyList = [];
+      const wordEtymologyList = data as Array<WordEtymology>;
+      for (const wordEtymology of wordEtymologyList) {
+        this.wordEtymologyList.push(new WordEtymology(wordEtymology));
+      }
     });
   }
 }
